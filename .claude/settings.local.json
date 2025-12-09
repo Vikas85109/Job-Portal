@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(ls -la \"C:\\vikas__ss_project\"\" && find \"C:vikas__ss_project\" -maxdepth 3 -type f -name \"*.json\" -o -name \"*.jsx\" -o -name \"*.js \")",
+      "Bash(cat:*)"
+    ]
+  }
+}
