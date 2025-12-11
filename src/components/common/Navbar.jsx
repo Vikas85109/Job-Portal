@@ -11,9 +11,16 @@ function Navbar() {
 
   const handleSearch = (e) => {
     e.preventDefault()
-    if (searchQuery.trim()) {
-      dispatch({ type: 'SET_FILTERS', payload: { search: searchQuery } })
-      navigate('/jobs')
+    dispatch({ type: 'SET_FILTERS', payload: { search: searchQuery.trim() } })
+    navigate('/jobs')
+  }
+
+  const handleSearchChange = (e) => {
+    const value = e.target.value
+    setSearchQuery(value)
+    // Clear filter immediately when search is emptied
+    if (!value.trim()) {
+      dispatch({ type: 'SET_FILTERS', payload: { search: '' } })
     }
   }
 
@@ -36,7 +43,7 @@ function Navbar() {
             type="text"
             placeholder="Search jobs, companies..."
             value={searchQuery}
-            onChange={(e) => setSearchQuery(e.target.value)}
+            onChange={handleSearchChange}
           />
         </form>
 
